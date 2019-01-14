@@ -1,0 +1,28 @@
+<h2>Projects</h2>
+
+<form>
+    <div class="form-group">
+        <label>Project Name</label>
+        <input type="text" class="form-control" name="projectName"  [(ngModel)]="project.name" placeholder="Enter Project Name">
+    </div>
+    <button type="button" class="btn btn-outline-primary" (click)="addProject()">Add Project</button>
+    <div>
+    </div>
+</form>
+
+<div>
+    <table>
+      <thead>
+        <tr>
+          <th>Project ID</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let proj of projects">
+          <td><a>{{proj.Id}} </a></td>
+          <td>{{ proj.Name }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

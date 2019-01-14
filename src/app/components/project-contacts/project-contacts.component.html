@@ -1,0 +1,40 @@
+<h2>Project Contacts</h2>
+
+<form>
+    <div class="form-group">
+        <label for="projectSel">Projects</label>
+        <select class='form-control' name="projectSel" id="projectSel" required [(ngModel)]='projectContact.projectId' (ngModelChange)='onProjectSelected($event)'>
+            <option class='option' *ngFor='let project of projects' [value]="project.Id">{{ project.Name }}</option>
+        </select>
+
+
+        <label>Contacts</label>
+        <select class='form-control' name="ContactSel" required [(ngModel)]='projectContact.contactId' (ngModelChange)='onContactSelected($event)'>
+            <option class='option' *ngFor='let contact of contacts' [value]="contact.Id">{{ contact.FirstName }} {{ contact.LastName }}</option>
+        </select>
+    </div>
+    <button type="button" class="btn btn-outline-primary" (click)="addProjectContact()">Add Contact to Project</button>
+    <div>
+
+    </div>
+    <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Address</th>
+              <th>Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let contact of selectedContacts">
+              <td><a>{{contact.FirstName}} </a></td>
+              <td>{{ contact.LastName }}</td>
+              <td>{{ contact.Address }}</td>
+              <td>{{ contact.Phone }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div> 
+</form>
